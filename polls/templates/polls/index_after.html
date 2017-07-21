@@ -5,6 +5,9 @@
 <div class="container gallery-container">
 
     <h2><p class="page-description text-center">2017 Miss Chinese Beauty Pageant</p></h2>
+    <p class="page-description text-center">
+      <img src="polls/static/polls/images/topbanner.jpeg" width=500 alt=""/>
+    </p>
     <div class="tz-gallery">
 
       <form action = "{% url 'polls:votes' %}" method="post">
@@ -23,7 +26,7 @@
                     <div class="caption">
                       <h4><p class="page-description text-center">#{{contestant.assigned_number}}. {{contestant.first_name}} {{contestant.last_name}}</p></h4>
                     <div class = "card-block">
-                    
+
                     </div>
 
                             <p class="page-description text-center">
@@ -37,6 +40,11 @@
         </div>
 
     </div>
+
+    <p class="page-description text-center">
+      <img src="polls/static/polls/images/bottombanner.jpeg" width=500 alt=""/>
+    </p>
+
 
 </div>
 
