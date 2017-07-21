@@ -22,9 +22,9 @@
             {% for contestant in candidates %}
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a class="lightbox" href="{{contestant.candidate_image.url}}">
-                        <img src="{{contestant.candidate_image.url}}" width=500 alt="{{contestant.first_name}}"/>
-                    </a>
+                  <a class="lightbox" href="{{contestant.candidate_image2}}">
+                      <img src="{{contestant.candidate_image.url}}" width=400 alt="{{contestant.first_name}}"/>
+                  </a>
                     <div class="caption">
                       <h4><p class="page-description text-center">#{{contestant.assigned_number}}. {{contestant.first_name}} {{contestant.last_name}}</p></h4>
                     <div class = "card-block">
