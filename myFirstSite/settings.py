@@ -126,6 +126,6 @@ MEDIA_URL = "/polls/"
 
 # Import local settings
 try:
-    from .local_settings import *
+    from local_settings import *
 except ImportError:
     pass
