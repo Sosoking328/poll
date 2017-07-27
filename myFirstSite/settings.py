@@ -150,7 +150,7 @@ AUTHENTICATION_BACKENDS = (
 # Mailing
 DEFAULT_FROM_EMAIL  = 'Sosokan <verify@sosokanapp.com>'
 SERVER_EMAIL        = 'verify@sosokanapp.com'
-EMAIL_BACKEND      = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_BACKEND      = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_HOST         = 'www.sosokanapp.com' 
