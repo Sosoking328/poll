@@ -1,8 +1,16 @@
 from django.contrib import admin
-#from .models import Question, Choice
-# Register your models here.
-#admin.site.register(Question)
-#admin.site.register(Choice)
-from . models import Candidate
+from . import models
 
-admin.site.register(Candidate)
+
+class VoterAdmin(admin.ModelAdmin):
+
+    list_display   = ('user', 'email', 'choosen',)
+
+    def email(self, obj):
+        return obj.user.email
+
+    email.admin_order_field = 'user__email'
+
+
+admin.site.register(models.Voter, VoterAdmin)
+admin.site.register(models.Candidate)
