@@ -1,0 +1,32 @@
+{% extends 'polls/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Login{% endblock %}
+
+{% block main_content %}
+<div class="container">
+    <p class="page-description text-center">
+        <img src="http://www.sosokanapp.com/assets/images/signup.jpg" width=370 alt=""/>
+    </p>
+    <div class="row">
+        <div class="col-sm-12 col-md-offset-3">
+            <div class="panel-body">
+                <form method="post" action="{% url 'account_login' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <button type="submit">LOGIN</button>
+                    <button type="reset">RESET</button>
+                    <br>
+                </form>
+                <br>
+                <br>
+                <a href= "{% url 'account_signup' %}"><button>NEW USER</button></a>
+                <a href= "{% url 'account_signup' %}"><img src="http://www.sosokanapp.com/assets/images/adduser.png" width=40 border="0" align="center"/></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

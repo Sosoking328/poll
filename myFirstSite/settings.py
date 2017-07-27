@@ -26,6 +26,7 @@ SECRET_KEY = '$s186k40%fh5o^evysvr3*&fwp$3&zr^tsom27^tgck0ryxvi#'
 DEBUG = True
 
 ALLOWED_HOSTS = ['sosoking.pythonanywhere.com']
+SITE_ID = 1
 
 
 # Application definition
@@ -37,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'polls.apps.PollsConfig'
+    'django.contrib.sites',
+    'polls.apps.PollsConfig',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -55,7 +60,9 @@ ROOT_URLCONF = 'myFirstSite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+             os.path.join(BASE_DIR, 'polls', 'templates', 'allauth',),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,10 +126,29 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
-LOGIN_REDIRECT_URL = 'polls:index_after'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'polls')
 MEDIA_URL = "/polls/"
+
+# Authentication
+LOGIN_REDIRECT_URL = 'polls:index'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'polls:index'
+ACCOUNT_LOGOUT_ON_GET = True
+#ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_SUBJECT_PREFIX = 'Sosokan'
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    # 'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+# Mailing
+EMAIL_BACKEND      = 'django.core.mail.backends.console.EmailBackend'
 
 # Import local settings
 try:
