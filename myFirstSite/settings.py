@@ -138,7 +138,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_EMAIL_SUBJECT_PREFIX = 'Sosokan'
+ACCOUNT_EMAIL_SUBJECT_PREFIX = 'Sosokan: '
 
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -149,6 +149,14 @@ AUTHENTICATION_BACKENDS = (
 
 # Mailing
 EMAIL_BACKEND      = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL  = 'Sosokan <verify@sosokanapp.com>'
+SERVER_EMAIL        = 'verify@sosokanapp.com'
+EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND      = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_HOST         = 'www.sosokanapp.com' 
+EMAIL_HOST_USER     = 'verify@sosokanapp.com'
+EMAIL_HOST_PASSWORD = ''
 
 # Import local settings
 try:
