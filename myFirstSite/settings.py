@@ -123,3 +123,9 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'polls:index_after'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'polls')
 MEDIA_URL = "/polls/"
+
+# Import local settings
+try:
+    from .local_settings import *
+except ImportError:
+    pass
