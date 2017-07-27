@@ -31,7 +31,7 @@
                         <div class="caption">
                             <h4><p class="page-description text-center">#{{contestant.assigned_number}}. {{contestant.first_name}} {{contestant.last_name}}</p></h4>
                                 <p class="page-description text-center">
-                                    <input type="image" src="http://www.clker.com/cliparts/c/l/Y/w/j/p/orange-heart-hi.png" name="contestant" id="contestant{{forloop.counter}}" value ="{{contestant.id}}" width=60>{{contestant.vote_count}}
+                                    <input type="image" src="http://www.clker.com/cliparts/c/l/Y/w/j/p/orange-heart-hi.png" name="contestant" id="contestant{{forloop.counter}}" value ="{{contestant.id}}" width=60 onclick="return vote_confirm(event, '#{{contestant.assigned_number}}. {{contestant.first_name}} {{contestant.last_name}}');"  >{{contestant.vote_count}}
                                 </p>
                             <p class="page-description text-center">Tap on the heart to Vote!</p>
                         </div>
@@ -47,5 +47,14 @@
             <img src="http://www.sosokanapp.com/assets/images/bottombanner.jpeg" width=370 border="0" align="center"/>
         </a>
     </p>
+
+    <script>
+        function vote_confirm(event, name) {
+            if( confirm('Do you want to vote for ' + name + '?') )
+                return true;
+            else
+                event.preventDefault();
+        }
+    </script>
 
 {% endblock %}

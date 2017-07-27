@@ -34,4 +34,4 @@ def votes(request):
     selected_choice.save()
     v = Voter(user=request.user, choosen=selected_choice)
     v.save()
-    return render(request,"polls/results.html",{'candidates':candidates})
+    return render(request, 'polls/results.html', {'candidates': candidates, 'contestant': selected_choice} )
